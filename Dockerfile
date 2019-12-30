@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:buster
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get -q -y update \
@@ -7,6 +7,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
                           dirvish \
                           rsyslog \
                           postfix \
+                          postgresql-client \
+                          mariadb-client \
  && apt-get -q -y clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
  \

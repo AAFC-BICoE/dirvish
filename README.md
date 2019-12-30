@@ -1,4 +1,30 @@
-# Docker Dirvish Backup System (servercontainers/dirvish)
+# Ported from servercontainers/dirvish
+
+
+This repo was forked from servercontainers/dirvish and extended for the
+following reasons:
+
+## We use docker swarm.
+
+Dirvish will often be used to remotely backup the target system. In our
+docker swarm environment, where our backup resource is an NFS-mounted
+filesystem and where a container will be dynamically named and assigned
+to a cluster node, it is far simpler to run a local dirvish service
+that will have access to the resources needed for a backup task.
+
+## We need newer versions of database clients.
+
+We need newer versions of the database clients for postgres and mariadb.
+The versions that are available to the debian:jesse distribution are
+too old to connect to the newer versions of the DBMS that are in use
+today.
+
+--------------------------------------------------------
+
+The following text comes from the original README.md...
+
+
+#Docker Dirvish Backup System (servercontainers/dirvish)
 _maintained by ServerContainers_
 
 [FAQ - All you need to know about the servercontainers Containers](https://marvin.im/docker-faq-all-you-need-to-know-about-the-marvambass-containers/)
